@@ -34,6 +34,15 @@ public class Newton extends Polynom {
         pairs = new HashMap<>();
         createPoly();
     }
+    public void addPoint(Double a, Double b){
+        dots.put(a,b);
+        keys= dots.keySet().toArray(new Double[0]);
+        Polynom r = new Polynom(new double[]{1.0});
+        for (int k = 0; k < keys.length-1; k++) {//точно ли до keys.length-1?
+            r = r.times(new Polynom(new double[]{-keys[k], 1.0}));
+        }
+        this.coef = this.plus(new Polynom(new double[]{razdRazn(0, keys.length-1)}).times(r)).coef.clone();
+    }
 
     private void createPoly() {
         Polynom p = new Polynom();

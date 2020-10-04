@@ -26,5 +26,8 @@ public class Main {
         System.out.println(lagr);
         var newt = new Newton(dots);
         System.out.println(newt);
+        newt.addPoint(0.5,0.125);
+        //newt.addPoint(1.0,1.0);
+        System.out.println(newt);
     }
 }
